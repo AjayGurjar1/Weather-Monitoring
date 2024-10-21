@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Trends</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Daily Weather Trends</h1>
+      <table class="weather-trends">
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>Date & Time</th>
+            <th>Average Temp (°C)</th>
+            <th>Max Temp (°C)</th>
+            <th>Min Temp (°C)</th>
+            <th>Dominant Condition</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for trend in trends %}
+          <tr>
+            <td>{{ trend.city }}</td>
+            <td>{{ trend.datetime }}</td>
+            <td>{{ trend.avg_temp }}</td>
+            <td>{{ trend.max_temp }}</td>
+            <td>{{ trend.min_temp }}</td>
+            <td>{{ trend.dominant_condition }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a href="/">Back to Weather Monitoring</a>
+    </div>
+  </body>
+</html>

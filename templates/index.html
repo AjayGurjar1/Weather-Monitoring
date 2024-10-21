@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Monitoring System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Real-Time Weather Monitoring</h1>
+
+        <form method="POST">
+            <label for="city">Select a city:</label>
+            <select name="city" id="city">
+                {% for city in cities %}
+                    <option value="{{ city }}" {% if selected_city == city %} selected {% endif %}>{{ city }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Get Weather</button>
+        </form>
+
+        {% if weather %}
+        <h2>Weather in {{ selected_city }}</h2>
+        <div class="weather-info">
+            <p><strong>Temperature:</strong> {{ weather.temperature }}°C</p>
+            <p><strong>Feels Like:</strong> {{ weather.feels_like }}°C</p>
+            <p><strong>Humidity:</strong> {{ weather.humidity }}%</p>
+            <p><strong>Wind Speed:</strong> {{ weather.wind_speed }} m/s</p>
+            <p><strong>Condition:</strong> {{ weather.condition }}</p>
+            <p><strong>Date & Time:</strong> {{ weather.datetime }}</p>
+        </div>
+        <div>
+            <a href="/trends" class="btn-visualize">View Weather Trends</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
