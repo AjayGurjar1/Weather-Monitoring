@@ -28,6 +28,8 @@ git clone https://github.com/AjayGurjar1/Weather-Monitoring
 
 cd weather-monitoring
 
+Add your OpenWeatherMap API key in app.py at line-9
+
 **Install Dependencies**
 
 pip install -r requirements.txt
