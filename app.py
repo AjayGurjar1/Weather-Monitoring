@@ -6,7 +6,7 @@ from datetime import datetime
 app = Flask(__name__)
 
 
-API_KEY = '7e5e5aef2fb6fbe9e548f2b1e40924fc'  
+API_KEY = 'ADD_YOUR_API_KEY'     #add your OpenWeatherMap api key  here 
 CITIES = ['Delhi', 'Mumbai', 'Chennai', 'Bangalore', 'Kolkata', 'Hyderabad']
 
 # Database initialization 
